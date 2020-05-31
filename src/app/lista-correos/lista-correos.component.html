@@ -6,6 +6,7 @@
         <th>Titulo</th>
         <th>Sinopsis</th>
         <th>Imagen</th>
+        <th>Responder</th>
     </tr>
     <!--<tr>
         <td>{{correos[0].emisor}}</td>
@@ -13,14 +14,19 @@
     </tr>-->
     <tr *ngFor="let correo of correos; index as i;">
         <td>
-            <input type="radio" name="leido-{{i}}" [(ngModel)]="correo.leido" [value]=true> Si
-            <input type="radio" name="leido-{{i}}" [(ngModel)]="correo.leido" [value]=false> No
+            <!--<input type="radio" name="leido-{{i}}" [(ngModel)]="correo.leido" [value]=true> Si
+            <input type="radio" name="leido-{{i}}" [(ngModel)]="correo.leido" [value]=false> No-->
+            <input type="radio" name="leido-{{i}}" [(ngModel)]="correo.leido" [value]=true disabled> Si
+            <input type="radio" name="leido-{{i}}" [(ngModel)]="correo.leido" [value]=false disabled> No
         </td>
         <td>{{correo.ano}}</td>
         <td>{{correo.emisor}}</td>
         <td>{{correo.titulo}}</td>
         <td>{{correo.cuerpo}}</td>
         <td><img src={{correo.imagen}}></td>
+        <td>
+            <button (click)="responder = !responder">Responder</button>
+        </td>
     </tr>
 </table>
 <!--<div *ngFor="let correo of correos; index as i;">
@@ -32,3 +38,5 @@
 <div *ngFor="let correo of correos; index as i;">
     <h3 *ngIf="!correos[i].leido">{{correos[i].titulo}}</h3>
 </div>
+<!-- Primero, realizaremos una prueba fuera -->
+<app-nuevo-correo *ngIf="responder"></app-nuevo-correo>

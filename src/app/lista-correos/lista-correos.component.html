@@ -1,19 +1,34 @@
 <table style="width: 100%; border: 1px solid black;">
     <tr>
         <th>Leído</th>
+        <th>año</th>
         <th>Emisor</th>
         <th>Titulo</th>
+        <th>Sinopsis</th>
+        <th>Imagen</th>
     </tr>
-    <tr>
+    <!--<tr>
         <td>{{correos[0].emisor}}</td>
         <td>{{correos[0].titulo}}</td>
-    </tr>
-    <tr *ngFor="let correo of correos">
+    </tr>-->
+    <tr *ngFor="let correo of correos; index as i;">
         <td>
-            <div *ngIf="correo.leido">Si</div>
-            <div *ngIf="!correo.leido">No</div>
+            <input type="radio" name="leido-{{i}}" [(ngModel)]="correo.leido" [value]=true> Si
+            <input type="radio" name="leido-{{i}}" [(ngModel)]="correo.leido" [value]=false> No
         </td>
+        <td>{{correo.ano}}</td>
         <td>{{correo.emisor}}</td>
         <td>{{correo.titulo}}</td>
+        <td>{{correo.cuerpo}}</td>
+        <td><img src={{correo.imagen}}></td>
     </tr>
 </table>
+<!--<div *ngFor="let correo of correos; index as i;">
+    <h2>Estado de lectura del correo {{i+1}}:</h2>
+    <h3 *ngIf="correos[i].leido">Si</h3>
+    <h3 *ngIf="!correos[i].leido">No</h3>
+</div>-->
+<h2>Series no vistas:</h2>
+<div *ngFor="let correo of correos; index as i;">
+    <h3 *ngIf="!correos[i].leido">{{correos[i].titulo}}</h3>
+</div>

@@ -11,22 +11,22 @@ export class ListaCorreosComponent implements OnInit {
 
   constructor() {
     const correo1 = {
-      titulo: "Titulo del 1",
-      cuerpo: `Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email
-        Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email,
-        Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email`,
+      titulo: "Breaking bad",
+      ano: "1992",
+      cuerpo: 'serie de droga',
       emisor: 'correoEmisor1@openWebinar.inv',
       destinatario: 'correoReceptor@openWebinar.inv',
       leido: true,
+      imagen: 'https://www.w3schools.com/images/lamp.jpg',
     };
     const correo2 = {
-      titulo: "Titulo del 2",
-      cuerpo: `Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email
-        Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuerpo del Email, Cuer`,
+      titulo: "Walking dead",
+      ano: "1992",
+      cuerpo: `Cuerpo del Email`,
       emisor: 'correoEmisor2@openWebinar.inv',
       destinatario: 'correoReceptor@openWebinar.inv',
       leido: false,
-
+      imagen: 'https://www.w3schools.com/images/lamp.jpg',
     };
     this.correos = [];
     this.correos.push(correo1);

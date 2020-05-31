@@ -25,7 +25,10 @@
         <td>{{correo.cuerpo}}</td>
         <td><img src={{correo.imagen}}></td>
         <td>
-            <button (click)="responder = !responder">Responder</button>
+            <button (click)="clickResponder(correo)">Responder</button>
+        </td>
+        <td *ngIf="correo.responder">
+            <app-nuevo-correo [correo]="correo"></app-nuevo-correo>
         </td>
     </tr>
 </table>
@@ -39,4 +42,3 @@
     <h3 *ngIf="!correos[i].leido">{{correos[i].titulo}}</h3>
 </div>
 <!-- Primero, realizaremos una prueba fuera -->
-<app-nuevo-correo *ngIf="responder"></app-nuevo-correo>

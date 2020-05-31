@@ -50,7 +50,10 @@ export class ListaCorreosComponent implements OnInit {
       destinatario: 'correoReceptor@openWebinar.inv',
       leido: false,
     });
+
+    this.responder = false;
   }
+
 
   ngOnInit(): void {
   }
@@ -59,5 +62,13 @@ export class ListaCorreosComponent implements OnInit {
     //this.responder = !this.responder;
     //this.correoAResponder = correo;
     correo.responder = !correo.responder;
+  }
+
+  accionRespuestaRapida(correo) {
+    correo.responder = false;
+  }
+
+  accionRapidaEnviar(event) {
+    this.responder = event;
   }
 }

@@ -25,10 +25,16 @@
         <td>{{correo.cuerpo}}</td>
         <td><img src={{correo.imagen}}></td>
         <td>
-            <button (click)="clickResponder(correo)">Responder</button>
+            <div *ngIf="!correo.respondido">
+                <button (click)="clickResponder(correo)">Responder</button>
+            </div>
+            <div *ngIf="correo.respondido">
+                {{res}}
+            </div>
         </td>
         <td *ngIf="correo.responder">
-            <app-nuevo-correo [correo]="correo"></app-nuevo-correo>
+            <app-nuevo-correo [correo]="correo" (accionCancelar)="accionRapidaCancelar(correo)"
+                (accionEnviar)="accionRapidaEnviar($event)"></app-nuevo-correo>
         </td>
     </tr>
 </table>

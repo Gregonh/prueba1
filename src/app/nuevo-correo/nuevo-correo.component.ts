@@ -11,6 +11,7 @@ export class NuevoCorreoComponent implements OnInit {
   submitted = false;
   @Input() correo: any;
   @Output() accionRealizada: EventEmitter<any> = new EventEmitter();
+  @Output() accionEnviar: EventEmitter<any> = new EventEmitter();
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -41,6 +42,10 @@ export class NuevoCorreoComponent implements OnInit {
     let correo = this.nuevoCorreo.value;
     correo.leido = false;
     correo.emisor = 'correoEmisor1@openWebinar.inv';
+
+    this.correo.respondido = true;
+    let respuesta = correo.cuerpo;
+    this.accionEnviar.emit(respuesta);
 
     alert("Correo Enviado \nEliminamos el formulario");
     this.onReset();
